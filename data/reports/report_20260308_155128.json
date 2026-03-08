@@ -1,0 +1,191 @@
+{
+  "report_id": "20260308_155128",
+  "scan_timestamp": "2026-03-08T15:51:28.928301",
+  "analyzed_file": "test-all-rules.tf",
+  "risk_summary": {
+    "total_risk_score": 45,
+    "risk_level": "CRITICAL",
+    "total_violations": 6
+  },
+  "security_findings": [
+    {
+      "rule": "s3_public_read",
+      "description": "S3 bucket should not allow public read access",
+      "severity": "HIGH",
+      "resource": "public_data",
+      "recommendation": "Set acl to 'private' or use bucket policies with restricted access"
+    },
+    {
+      "rule": "s3_encryption_disabled",
+      "description": "S3 bucket should have encryption enabled",
+      "severity": "MEDIUM",
+      "resource": "public_data",
+      "recommendation": "Enable AES-256 or AWS-KMS encryption for data at rest"
+    },
+    {
+      "rule": "s3_public_write",
+      "description": "S3 bucket should not allow public write access",
+      "severity": "CRITICAL",
+      "resource": "public_write",
+      "recommendation": "Remove public write permissions immediately. Use pre-signed URLs for temporary write access"
+    },
+    {
+      "rule": "s3_encryption_disabled",
+      "description": "S3 bucket should have encryption enabled",
+      "severity": "MEDIUM",
+      "resource": "public_write",
+      "recommendation": "Enable AES-256 or AWS-KMS encryption for data at rest"
+    },
+    {
+      "rule": "s3_encryption_disabled",
+      "description": "S3 bucket should have encryption enabled",
+      "severity": "MEDIUM",
+      "resource": "no_encryption",
+      "recommendation": "Enable AES-256 or AWS-KMS encryption for data at rest"
+    },
+    {
+      "rule": "rds_backup_retention_short",
+      "description": "RDS backup retention period is too short",
+      "severity": "MEDIUM",
+      "resource": "no_backup",
+      "recommendation": "Set backup_retention_period to at least 7 days for disaster recovery"
+    }
+  ],
+  "recommendations": [
+    {
+      "rule": "s3_public_read",
+      "issue": "S3 bucket should not allow public read access",
+      "fix": "Set acl to 'private' or use bucket policies with restricted access",
+      "severity": "HIGH",
+      "resource": "public_data"
+    },
+    {
+      "rule": "s3_encryption_disabled",
+      "issue": "S3 bucket should have encryption enabled",
+      "fix": "Enable AES-256 or AWS-KMS encryption for data at rest",
+      "severity": "MEDIUM",
+      "resource": "public_data"
+    },
+    {
+      "rule": "s3_public_write",
+      "issue": "S3 bucket should not allow public write access",
+      "fix": "Remove public write permissions immediately. Use pre-signed URLs for temporary write access",
+      "severity": "CRITICAL",
+      "resource": "public_write"
+    },
+    {
+      "rule": "s3_encryption_disabled",
+      "issue": "S3 bucket should have encryption enabled",
+      "fix": "Enable AES-256 or AWS-KMS encryption for data at rest",
+      "severity": "MEDIUM",
+      "resource": "public_write"
+    },
+    {
+      "rule": "s3_encryption_disabled",
+      "issue": "S3 bucket should have encryption enabled",
+      "fix": "Enable AES-256 or AWS-KMS encryption for data at rest",
+      "severity": "MEDIUM",
+      "resource": "no_encryption"
+    },
+    {
+      "rule": "rds_backup_retention_short",
+      "issue": "RDS backup retention period is too short",
+      "fix": "Set backup_retention_period to at least 7 days for disaster recovery",
+      "severity": "MEDIUM",
+      "resource": "no_backup"
+    }
+  ],
+  "parsed_configuration": {
+    "resource": [
+      {
+        "aws_s3_bucket": {
+          "public_data": {
+            "bucket": "my-public-bucket",
+            "acl": "public-read"
+          }
+        }
+      },
+      {
+        "aws_s3_bucket": {
+          "public_write": {
+            "bucket": "my-public-write-bucket",
+            "acl": "public-read-write"
+          }
+        }
+      },
+      {
+        "aws_s3_bucket": {
+          "no_encryption": {
+            "bucket": "no-encryption-bucket",
+            "acl": "private"
+          }
+        }
+      },
+      {
+        "aws_instance": {
+          "public_server": {
+            "ami": "ami-123456",
+            "instance_type": "t2.micro",
+            "associate_public_ip_address": true
+          }
+        }
+      },
+      {
+        "aws_security_group_rule": {
+          "ssh_from_world": {
+            "type": "ingress",
+            "from_port": 22,
+            "to_port": 22,
+            "protocol": "tcp",
+            "cidr_blocks": [
+              "0.0.0.0/0"
+            ],
+            "security_group_id": "sg-123456"
+          }
+        }
+      },
+      {
+        "aws_security_group_rule": {
+          "rdp_from_world": {
+            "type": "ingress",
+            "from_port": 3389,
+            "to_port": 3389,
+            "protocol": "tcp",
+            "cidr_blocks": [
+              "0.0.0.0/0"
+            ],
+            "security_group_id": "sg-123456"
+          }
+        }
+      },
+      {
+        "aws_db_instance": {
+          "public_db": {
+            "identifier": "public-db",
+            "engine": "mysql",
+            "publicly_accessible": true,
+            "storage_encrypted": false
+          }
+        }
+      },
+      {
+        "aws_db_instance": {
+          "no_backup": {
+            "identifier": "no-backup-db",
+            "engine": "mysql",
+            "backup_retention_period": 1
+          }
+        }
+      },
+      {
+        "aws_ebs_volume": {
+          "data_volume": {
+            "availability_zone": "us-west-2a",
+            "size": 40,
+            "encrypted": false
+          }
+        }
+      }
+    ]
+  }
+}

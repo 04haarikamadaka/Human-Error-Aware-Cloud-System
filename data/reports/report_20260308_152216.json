@@ -1,0 +1,39 @@
+{
+  "report_id": "20260308_152216",
+  "scan_timestamp": "2026-03-08T15:22:16.426150",
+  "analyzed_file": "sample.tf",
+  "risk_summary": {
+    "total_risk_score": 10,
+    "risk_level": "HIGH",
+    "total_violations": 1
+  },
+  "security_findings": [
+    {
+      "rule": "s3_public_access",
+      "description": "S3 bucket should not allow public read access",
+      "severity": "HIGH",
+      "resource": "example"
+    }
+  ],
+  "recommendations": [
+    {
+      "rule": "s3_public_access",
+      "issue": "S3 bucket allows public read access",
+      "fix": "Set acl to private or remove public access",
+      "severity": "HIGH",
+      "resource": "example"
+    }
+  ],
+  "parsed_configuration": {
+    "resource": [
+      {
+        "aws_s3_bucket": {
+          "example": {
+            "bucket": "my-test-bucket",
+            "acl": "public-read"
+          }
+        }
+      }
+    ]
+  }
+}

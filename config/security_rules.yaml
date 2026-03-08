@@ -1,0 +1,146 @@
+# S3 Bucket Security Rules
+s3_public_read:
+  description: "S3 bucket should not allow public read access"
+  resource_type: "aws_s3_bucket"
+  check: "acl"
+  disallowed_value: "public-read"
+  severity: "HIGH"
+  recommendation: "Set acl to 'private' or use bucket policies with restricted access"
+
+s3_public_write:
+  description: "S3 bucket should not allow public write access"
+  resource_type: "aws_s3_bucket"
+  check: "acl"
+  disallowed_value: "public-read-write"
+  severity: "CRITICAL"
+  recommendation: "Remove public write permissions immediately. Use pre-signed URLs for temporary write access"
+
+s3_encryption_disabled:
+  description: "S3 bucket should have encryption enabled"
+  resource_type: "aws_s3_bucket"
+  check: "server_side_encryption_configuration"
+  missing_value: "true"
+  severity: "MEDIUM"
+  recommendation: "Enable AES-256 or AWS-KMS encryption for data at rest"
+
+s3_versioning_disabled:
+  description: "S3 bucket versioning should be enabled for data protection"
+  resource_type: "aws_s3_bucket"
+  check: "versioning"
+  disallowed_value: "disabled"
+  severity: "LOW"
+  recommendation: "Enable versioning to protect against accidental deletions"
+
+# EC2 Security Rules
+ec2_public_ip:
+  description: "EC2 instance should not have a public IP address"
+  resource_type: "aws_instance"
+  check: "associate_public_ip_address"
+  disallowed_value: "true"
+  severity: "HIGH"
+  recommendation: "Remove public IP and use NAT gateway or VPN for access"
+
+ec2_open_ssh:
+  description: "EC2 security group allows SSH from anywhere (0.0.0.0/0)"
+  resource_type: "aws_security_group_rule"
+  check: "cidr_blocks"
+  contains: "0.0.0.0/0"
+  port: "22"
+  severity: "CRITICAL"
+  recommendation: "Restrict SSH access to specific IP ranges only"
+
+ec2_open_rdp:
+  description: "EC2 security group allows RDP from anywhere (0.0.0.0/0)"
+  resource_type: "aws_security_group_rule"
+  check: "cidr_blocks"
+  contains: "0.0.0.0/0"
+  port: "3389"
+  severity: "CRITICAL"
+  recommendation: "Restrict RDP access to specific IP ranges or use VPN"
+
+# RDS Security Rules
+rds_publicly_accessible:
+  description: "RDS instance should not be publicly accessible"
+  resource_type: "aws_db_instance"
+  check: "publicly_accessible"
+  disallowed_value: "true"
+  severity: "HIGH"
+  recommendation: "Set publicly_accessible to false and use VPC endpoints"
+
+rds_encryption_disabled:
+  description: "RDS instance should have storage encryption enabled"
+  resource_type: "aws_db_instance"
+  check: "storage_encrypted"
+  disallowed_value: "false"
+  severity: "HIGH"
+  recommendation: "Enable storage encryption for data protection"
+
+rds_backup_retention_short:
+  description: "RDS backup retention period is too short"
+  resource_type: "aws_db_instance"
+  check: "backup_retention_period"
+  less_than: 7
+  severity: "MEDIUM"
+  recommendation: "Set backup_retention_period to at least 7 days for disaster recovery"
+
+# IAM Security Rules
+iam_root_access_keys:
+  description: "Root user should not have access keys"
+  resource_type: "aws_iam_access_key"
+  check: "user"
+  disallowed_value: "root"
+  severity: "CRITICAL"
+  recommendation: "Delete root access keys and use IAM users with appropriate permissions"
+
+iam_password_no_policy:
+  description: "IAM password policy should be configured"
+  resource_type: "aws_iam_account_password_policy"
+  check: "exists"
+  missing_value: "true"
+  severity: "MEDIUM"
+  recommendation: "Configure password policy with minimum length and complexity requirements"
+
+# EBS Security Rules
+ebs_unencrypted:
+  description: "EBS volume should be encrypted"
+  resource_type: "aws_ebs_volume"
+  check: "encrypted"
+  disallowed_value: "false"
+  severity: "HIGH"
+  recommendation: "Enable EBS encryption for data at rest"
+
+# CloudFront Security Rules
+cloudfront_no_https:
+  description: "CloudFront distribution should enforce HTTPS"
+  resource_type: "aws_cloudfront_distribution"
+  check: "viewer_protocol_policy"
+  disallowed_value: "allow-all"
+  severity: "HIGH"
+  recommendation: "Set viewer_protocol_policy to 'redirect-to-https' or 'https-only'"
+
+# Lambda Security Rules
+lambda_no_vpc:
+  description: "Lambda function should be configured to run inside a VPC"
+  resource_type: "aws_lambda_function"
+  check: "vpc_config"
+  missing_value: "true"
+  severity: "MEDIUM"
+  recommendation: "Configure Lambda to run inside a VPC for better security"
+
+# Monitoring and Logging Rules
+cloudtrail_disabled:
+  description: "CloudTrail should be enabled for audit logging"
+  resource_type: "aws_cloudtrail"
+  check: "exists"
+  missing_value: "true"
+  severity: "HIGH"
+  recommendation: "Enable CloudTrail in all regions for compliance and auditing"
+
+# Database Security
+elasticache_no_encryption:
+  description: "ElastiCache cluster should have encryption enabled"
+  resource_type: "aws_elasticache_cluster"
+  check: "at_rest_encryption_enabled"
+  disallowed_value: "false"
+  severity: "MEDIUM"
+  recommendation: "Enable at-rest and in-transit encryption for ElastiCache"

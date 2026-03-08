@@ -1,3 +1,4 @@
 streamlit
 python-hcl2
 pyyaml
+fpdf

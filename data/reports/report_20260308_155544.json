@@ -1,0 +1,54 @@
+{
+  "report_id": "20260308_155544",
+  "scan_timestamp": "2026-03-08T15:55:44.795501",
+  "analyzed_file": "sample.tf",
+  "risk_summary": {
+    "total_risk_score": 15,
+    "risk_level": "HIGH",
+    "total_violations": 2
+  },
+  "security_findings": [
+    {
+      "rule": "s3_public_read",
+      "description": "S3 bucket should not allow public read access",
+      "severity": "HIGH",
+      "resource": "example",
+      "recommendation": "Set acl to 'private' or use bucket policies with restricted access"
+    },
+    {
+      "rule": "s3_encryption_disabled",
+      "description": "S3 bucket should have encryption enabled",
+      "severity": "MEDIUM",
+      "resource": "example",
+      "recommendation": "Enable AES-256 or AWS-KMS encryption for data at rest"
+    }
+  ],
+  "recommendations": [
+    {
+      "rule": "s3_public_read",
+      "issue": "S3 bucket should not allow public read access",
+      "fix": "Set acl to 'private' or use bucket policies with restricted access",
+      "severity": "HIGH",
+      "resource": "example"
+    },
+    {
+      "rule": "s3_encryption_disabled",
+      "issue": "S3 bucket should have encryption enabled",
+      "fix": "Enable AES-256 or AWS-KMS encryption for data at rest",
+      "severity": "MEDIUM",
+      "resource": "example"
+    }
+  ],
+  "parsed_configuration": {
+    "resource": [
+      {
+        "aws_s3_bucket": {
+          "example": {
+            "bucket": "my-test-bucket",
+            "acl": "public-read"
+          }
+        }
+      }
+    ]
+  }
+}
