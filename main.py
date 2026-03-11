@@ -11,7 +11,7 @@ from shared.history_manager import HistoryManager
 
 # Page config
 st.set_page_config(
-    page_title="Cloud Security Analyzer",
+    page_title="Human Error Aware Cloud System",
     page_icon="🛡️",
     layout="centered"
 )
