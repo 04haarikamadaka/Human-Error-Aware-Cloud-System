@@ -1,1 +1,154 @@
-[]
+[
+  {
+    "scan_id": 1,
+    "timestamp": "2026-03-12T13:55:47.564267",
+    "filename": "1.tf",
+    "violations_count": 4,
+    "risk_score": 56,
+    "risk_level": "HIGH",
+    "violations": [
+      {
+        "rule": "s3_public_read",
+        "description": "S3 bucket should not allow public read access",
+        "severity": "HIGH",
+        "resource": "public_bucket",
+        "recommendation": "Set acl to 'private' or use bucket policies with restricted access"
+      },
+      {
+        "rule": "s3_encryption_disabled",
+        "description": "S3 bucket should have encryption enabled",
+        "severity": "MEDIUM",
+        "resource": "public_bucket",
+        "recommendation": "Enable AES-256 or AWS-KMS encryption for data at rest"
+      },
+      {
+        "rule": "s3_public_write",
+        "description": "S3 bucket should not allow public write access",
+        "severity": "CRITICAL",
+        "resource": "insecure_bucket",
+        "recommendation": "Remove public write permissions immediately. Use pre-signed URLs for temporary write access"
+      },
+      {
+        "rule": "s3_encryption_disabled",
+        "description": "S3 bucket should have encryption enabled",
+        "severity": "MEDIUM",
+        "resource": "insecure_bucket",
+        "recommendation": "Enable AES-256 or AWS-KMS encryption for data at rest"
+      }
+    ]
+  },
+  {
+    "scan_id": 2,
+    "timestamp": "2026-03-12T13:55:54.377532",
+    "filename": "1.tf",
+    "violations_count": 4,
+    "risk_score": 56,
+    "risk_level": "HIGH",
+    "violations": [
+      {
+        "rule": "s3_public_read",
+        "description": "S3 bucket should not allow public read access",
+        "severity": "HIGH",
+        "resource": "public_bucket",
+        "recommendation": "Set acl to 'private' or use bucket policies with restricted access"
+      },
+      {
+        "rule": "s3_encryption_disabled",
+        "description": "S3 bucket should have encryption enabled",
+        "severity": "MEDIUM",
+        "resource": "public_bucket",
+        "recommendation": "Enable AES-256 or AWS-KMS encryption for data at rest"
+      },
+      {
+        "rule": "s3_public_write",
+        "description": "S3 bucket should not allow public write access",
+        "severity": "CRITICAL",
+        "resource": "insecure_bucket",
+        "recommendation": "Remove public write permissions immediately. Use pre-signed URLs for temporary write access"
+      },
+      {
+        "rule": "s3_encryption_disabled",
+        "description": "S3 bucket should have encryption enabled",
+        "severity": "MEDIUM",
+        "resource": "insecure_bucket",
+        "recommendation": "Enable AES-256 or AWS-KMS encryption for data at rest"
+      }
+    ]
+  },
+  {
+    "scan_id": 3,
+    "timestamp": "2026-03-12T13:56:11.687624",
+    "filename": "1.tf",
+    "violations_count": 4,
+    "risk_score": 56,
+    "risk_level": "HIGH",
+    "violations": [
+      {
+        "rule": "s3_public_read",
+        "description": "S3 bucket should not allow public read access",
+        "severity": "HIGH",
+        "resource": "public_bucket",
+        "recommendation": "Set acl to 'private' or use bucket policies with restricted access"
+      },
+      {
+        "rule": "s3_encryption_disabled",
+        "description": "S3 bucket should have encryption enabled",
+        "severity": "MEDIUM",
+        "resource": "public_bucket",
+        "recommendation": "Enable AES-256 or AWS-KMS encryption for data at rest"
+      },
+      {
+        "rule": "s3_public_write",
+        "description": "S3 bucket should not allow public write access",
+        "severity": "CRITICAL",
+        "resource": "insecure_bucket",
+        "recommendation": "Remove public write permissions immediately. Use pre-signed URLs for temporary write access"
+      },
+      {
+        "rule": "s3_encryption_disabled",
+        "description": "S3 bucket should have encryption enabled",
+        "severity": "MEDIUM",
+        "resource": "insecure_bucket",
+        "recommendation": "Enable AES-256 or AWS-KMS encryption for data at rest"
+      }
+    ]
+  },
+  {
+    "scan_id": 4,
+    "timestamp": "2026-03-12T13:57:47.900773",
+    "filename": "1.tf",
+    "violations_count": 4,
+    "risk_score": 56,
+    "risk_level": "HIGH",
+    "violations": [
+      {
+        "rule": "s3_public_read",
+        "description": "S3 bucket should not allow public read access",
+        "severity": "HIGH",
+        "resource": "public_bucket",
+        "recommendation": "Set acl to 'private' or use bucket policies with restricted access"
+      },
+      {
+        "rule": "s3_encryption_disabled",
+        "description": "S3 bucket should have encryption enabled",
+        "severity": "MEDIUM",
+        "resource": "public_bucket",
+        "recommendation": "Enable AES-256 or AWS-KMS encryption for data at rest"
+      },
+      {
+        "rule": "s3_public_write",
+        "description": "S3 bucket should not allow public write access",
+        "severity": "CRITICAL",
+        "resource": "insecure_bucket",
+        "recommendation": "Remove public write permissions immediately. Use pre-signed URLs for temporary write access"
+      },
+      {
+        "rule": "s3_encryption_disabled",
+        "description": "S3 bucket should have encryption enabled",
+        "severity": "MEDIUM",
+        "resource": "insecure_bucket",
+        "recommendation": "Enable AES-256 or AWS-KMS encryption for data at rest"
+      }
+    ]
+  }
+]
