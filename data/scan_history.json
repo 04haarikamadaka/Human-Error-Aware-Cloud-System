@@ -39,5 +39,125 @@
         "recommendation": "Enable AES-256 or AWS-KMS encryption for data at rest"
       }
     ]
+  },
+  {
+    "scan_id": 3,
+    "timestamp": "2026-03-19T15:59:47.510461",
+    "filename": "test-all-rules.tf",
+    "violations_count": 2,
+    "risk_score": 16,
+    "risk_level": "LOW",
+    "violations": [
+      {
+        "rule": "s3_encryption_disabled",
+        "description": "S3 bucket should have encryption enabled",
+        "severity": "MEDIUM",
+        "resource": "web_assets",
+        "recommendation": "Enable AES-256 or AWS-KMS encryption for data at rest"
+      },
+      {
+        "rule": "s3_encryption_disabled",
+        "description": "S3 bucket should have encryption enabled",
+        "severity": "MEDIUM",
+        "resource": "access_logs",
+        "recommendation": "Enable AES-256 or AWS-KMS encryption for data at rest"
+      }
+    ]
+  },
+  {
+    "scan_id": 4,
+    "timestamp": "2026-03-19T15:59:52.209566",
+    "filename": "test-all-rules.tf",
+    "violations_count": 2,
+    "risk_score": 16,
+    "risk_level": "LOW",
+    "violations": [
+      {
+        "rule": "s3_encryption_disabled",
+        "description": "S3 bucket should have encryption enabled",
+        "severity": "MEDIUM",
+        "resource": "web_assets",
+        "recommendation": "Enable AES-256 or AWS-KMS encryption for data at rest"
+      },
+      {
+        "rule": "s3_encryption_disabled",
+        "description": "S3 bucket should have encryption enabled",
+        "severity": "MEDIUM",
+        "resource": "access_logs",
+        "recommendation": "Enable AES-256 or AWS-KMS encryption for data at rest"
+      }
+    ]
+  },
+  {
+    "scan_id": 5,
+    "timestamp": "2026-03-19T16:07:16.338382",
+    "filename": "test-all-rules.tf",
+    "violations_count": 2,
+    "risk_score": 16,
+    "risk_level": "LOW",
+    "violations": [
+      {
+        "rule": "s3_encryption_disabled",
+        "description": "S3 bucket should have encryption enabled",
+        "severity": "MEDIUM",
+        "resource": "web_assets",
+        "recommendation": "Enable AES-256 or AWS-KMS encryption for data at rest"
+      },
+      {
+        "rule": "s3_encryption_disabled",
+        "description": "S3 bucket should have encryption enabled",
+        "severity": "MEDIUM",
+        "resource": "access_logs",
+        "recommendation": "Enable AES-256 or AWS-KMS encryption for data at rest"
+      }
+    ]
+  },
+  {
+    "scan_id": 6,
+    "timestamp": "2026-03-19T16:07:25.528801",
+    "filename": "test-all-rules.tf",
+    "violations_count": 2,
+    "risk_score": 16,
+    "risk_level": "LOW",
+    "violations": [
+      {
+        "rule": "s3_encryption_disabled",
+        "description": "S3 bucket should have encryption enabled",
+        "severity": "MEDIUM",
+        "resource": "web_assets",
+        "recommendation": "Enable AES-256 or AWS-KMS encryption for data at rest"
+      },
+      {
+        "rule": "s3_encryption_disabled",
+        "description": "S3 bucket should have encryption enabled",
+        "severity": "MEDIUM",
+        "resource": "access_logs",
+        "recommendation": "Enable AES-256 or AWS-KMS encryption for data at rest"
+      }
+    ]
+  },
+  {
+    "scan_id": 7,
+    "timestamp": "2026-03-19T16:11:51.844285",
+    "filename": "test-all-rules.tf",
+    "violations_count": 2,
+    "risk_score": 16,
+    "risk_level": "LOW",
+    "violations": [
+      {
+        "rule": "s3_encryption_disabled",
+        "description": "S3 bucket should have encryption enabled",
+        "severity": "MEDIUM",
+        "resource": "web_assets",
+        "recommendation": "Enable AES-256 or AWS-KMS encryption for data at rest"
+      },
+      {
+        "rule": "s3_encryption_disabled",
+        "description": "S3 bucket should have encryption enabled",
+        "severity": "MEDIUM",
+        "resource": "access_logs",
+        "recommendation": "Enable AES-256 or AWS-KMS encryption for data at rest"
+      }
+    ]
   }
 ]

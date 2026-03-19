@@ -10,7 +10,7 @@ from modules.module6_report.services import generate_pdf_report
 from shared.history_manager import HistoryManager
 
 # Page settings
-st.set_page_config(page_title="Cloud Security Analyzer", page_icon="🛡️")
+st.set_page_config(page_title="Human Error Aware Cloud System ", page_icon="🛡️")
 
 history_mgr = HistoryManager()
 
