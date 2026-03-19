@@ -1,4 +1,3 @@
-
 import streamlit as st
 import os
 import json
@@ -10,7 +9,7 @@ from modules.module6_report.services import generate_pdf_report
 from shared.history_manager import HistoryManager
 
 # Page settings
-st.set_page_config(page_title="Human Error Aware Cloud System ", page_icon="🛡️")
+st.set_page_config(page_title="Human Error Aware Cloud System", page_icon="🛡️")
 
 history_mgr = HistoryManager()
 
@@ -45,9 +44,7 @@ else:
 uploaded_file = st.file_uploader("Upload Terraform file (.tf)", type=["tf"])
 
 if uploaded_file:
-
     with st.spinner("Analyzing..."):
-
         upload_folder = "data/uploads"
         os.makedirs(upload_folder, exist_ok=True)
 
@@ -69,7 +66,6 @@ if uploaded_file:
 
     # Metrics
     col1, col2, col3 = st.columns(3)
-
     col1.metric("Risk Score", f"{risk_score}/100")
     col2.metric("Risk Level", risk_level)
     col3.metric("Violations", len(violations))
@@ -82,7 +78,6 @@ if uploaded_file:
     # Violations
     if violations:
         st.subheader("Security Violations")
-
         for v in violations:
             st.warning(
                 f"{v['severity']} - {v['description']} | Resource: {v['resource']}"
@@ -93,10 +88,11 @@ if uploaded_file:
     # Recommendations
     if recommendations:
         st.subheader("Recommendations")
-
         for r in recommendations:
             st.info(
-                f"Issue: {r['issue']} \nFix: {r['fix']} \nResource: {r['resource']}"
+                f"**Issue:** {r['issue']}\n\n"
+                f"**Fix:** {r['fix']}\n\n"
+                f"**Resource:** {r['resource']}"
             )
 
     # PDF report

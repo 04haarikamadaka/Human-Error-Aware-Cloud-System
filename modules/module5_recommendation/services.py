@@ -1,19 +1,16 @@
 def generate_recommendations(violations):
-
     recommendations = []
 
     for v in violations:
-
         rule_name = v.get("rule", "").lower()
+        resource = v.get("resource", "Unknown resource")
 
         # -------- S3 PUBLIC READ --------
         if "s3_public_access" in rule_name or "public" in rule_name:
-
             recommendations.append({
                 "issue": "S3 bucket allows public read access",
-
                 "fix": "Set ACL to private or enable 'Block Public Access' in AWS S3 settings",
-
+                "resource": resource,
                 "explanation": """
 Basic:
 This S3 bucket is publicly accessible, meaning anyone on the internet can view its contents.
@@ -35,12 +32,10 @@ Always keep S3 buckets private by default. Use IAM roles and policies to give co
 
         # -------- S3 PUBLIC WRITE --------
         elif "s3_public_write" in rule_name or "write" in rule_name:
-
             recommendations.append({
                 "issue": "S3 bucket allows public write access",
-
                 "fix": "Remove public write permissions and restrict access using IAM policies",
-
+                "resource": resource,
                 "explanation": """
 Basic:
 This bucket allows anyone to upload, modify, or delete files.
@@ -62,12 +57,10 @@ Never allow public write access. Only authenticated users with proper permission
 
         # -------- DEFAULT FALLBACK --------
         else:
-
             recommendations.append({
                 "issue": v.get("description", "Unknown issue"),
-
                 "fix": "Review configuration and follow cloud security best practices",
-
+                "resource": resource,
                 "explanation": """
 Basic:
 There is a configuration issue in your cloud setup.
