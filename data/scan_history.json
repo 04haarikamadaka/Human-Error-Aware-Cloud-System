@@ -1,1 +1,95 @@
-[]
+[
+  {
+    "scan_id": 1,
+    "timestamp": "2026-03-22T21:00:44.041040",
+    "filename": "sample1.tf",
+    "violations_count": 3,
+    "risk_score": 58,
+    "risk_level": "HIGH",
+    "violations": [
+      {
+        "rule": "iam_root_access_keys",
+        "description": "Root user should not have access keys",
+        "severity": "CRITICAL",
+        "resource": "root",
+        "recommendation": "Delete root access keys and use IAM users with appropriate permissions"
+      },
+      {
+        "rule": "s3_public_write",
+        "description": "S3 bucket should not allow public write access",
+        "severity": "CRITICAL",
+        "resource": "public_write",
+        "recommendation": "Remove public write permissions immediately. Use pre-signed URLs for temporary write access"
+      },
+      {
+        "rule": "s3_encryption_disabled",
+        "description": "S3 bucket should have encryption enabled",
+        "severity": "MEDIUM",
+        "resource": "public_write",
+        "recommendation": "Enable AES-256 or AWS-KMS encryption for data at rest"
+      }
+    ]
+  },
+  {
+    "scan_id": 2,
+    "timestamp": "2026-03-22T21:00:50.679162",
+    "filename": "sample1.tf",
+    "violations_count": 3,
+    "risk_score": 58,
+    "risk_level": "HIGH",
+    "violations": [
+      {
+        "rule": "iam_root_access_keys",
+        "description": "Root user should not have access keys",
+        "severity": "CRITICAL",
+        "resource": "root",
+        "recommendation": "Delete root access keys and use IAM users with appropriate permissions"
+      },
+      {
+        "rule": "s3_public_write",
+        "description": "S3 bucket should not allow public write access",
+        "severity": "CRITICAL",
+        "resource": "public_write",
+        "recommendation": "Remove public write permissions immediately. Use pre-signed URLs for temporary write access"
+      },
+      {
+        "rule": "s3_encryption_disabled",
+        "description": "S3 bucket should have encryption enabled",
+        "severity": "MEDIUM",
+        "resource": "public_write",
+        "recommendation": "Enable AES-256 or AWS-KMS encryption for data at rest"
+      }
+    ]
+  },
+  {
+    "scan_id": 3,
+    "timestamp": "2026-03-22T21:00:52.412438",
+    "filename": "sample1.tf",
+    "violations_count": 3,
+    "risk_score": 58,
+    "risk_level": "HIGH",
+    "violations": [
+      {
+        "rule": "iam_root_access_keys",
+        "description": "Root user should not have access keys",
+        "severity": "CRITICAL",
+        "resource": "root",
+        "recommendation": "Delete root access keys and use IAM users with appropriate permissions"
+      },
+      {
+        "rule": "s3_public_write",
+        "description": "S3 bucket should not allow public write access",
+        "severity": "CRITICAL",
+        "resource": "public_write",
+        "recommendation": "Remove public write permissions immediately. Use pre-signed URLs for temporary write access"
+      },
+      {
+        "rule": "s3_encryption_disabled",
+        "description": "S3 bucket should have encryption enabled",
+        "severity": "MEDIUM",
+        "resource": "public_write",
+        "recommendation": "Enable AES-256 or AWS-KMS encryption for data at rest"
+      }
+    ]
+  }
+]

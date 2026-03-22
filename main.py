@@ -328,10 +328,10 @@ if uploaded_file:
                 if not steps_shown:
                     st.write(f"**Quick fix:** {r['fix']}")
                     st.write("\n**For detailed steps:**")
-                    st.write("1. Check your cloud provider's documentation")
-                    st.write("2. Review your current settings")
-                    st.write("3. Make changes one at a time")
-                    st.write("4. Test after each change")
+                    st.write("1️⃣ Check your cloud provider's documentation")
+                    st.write("2️⃣ Review your current settings")
+                    st.write("3️⃣ Make changes one at a time")
+                    st.write("4️⃣ Test after each change")
     
     # Download PDF report
     if violations:
